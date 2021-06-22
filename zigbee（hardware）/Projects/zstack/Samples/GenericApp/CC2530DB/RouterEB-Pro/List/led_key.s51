@@ -1,0 +1,559 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        15/Jun/2021  21:45:38 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  D:\Desktop\zigbee\Projects\zstack\Samples\Generic /
+//                          App\Source\led_key.c                              /
+//    Command line       =  -f D:\Desktop\zigbee\Projects\zstack\Samples\Gene /
+//                          ricApp\CC2530DB\..\..\..\Tools\CC2530DB\f8wRouter /
+//                          .cfg (-DCPU32MHZ -DROOT=__near_func               /
+//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE -DRTR_NWK        /
+//                          -DBLINK_LEDS) -f D:\Desktop\zigbee\Projects\zstac /
+//                          k\Samples\GenericApp\CC2530DB\..\..\..\Tools\CC25 /
+//                          30DB\f8wConfig.cfg (-DSECURE=0                    /
+//                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                 /
+//                          -DDEFAULT_CHANLIST=0x00008000                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0x1234                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          "-DCONST=const __code" -DGENERIC=__generic        /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 D:\Desktop\zigbee\Projects /
+//                          \zstack\Samples\GenericApp\Source\led_key.c -D    /
+//                          ZIGBEEPRO -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC   /
+//                          -D MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG -lC         /
+//                          D:\Desktop\zigbee\Projects\zstack\Samples\Generic /
+//                          App\CC2530DB\RouterEB-Pro\List\ -lA               /
+//                          D:\Desktop\zigbee\Projects\zstack\Samples\Generic /
+//                          App\CC2530DB\RouterEB-Pro\List\ --diag_suppress   /
+//                          Pe001,Pa010 -o D:\Desktop\zigbee\Projects\zstack\ /
+//                          Samples\GenericApp\CC2530DB\RouterEB-Pro\Obj\ -e  /
+//                          --debug --core=plain --dptr=16,1                  /
+//                          --data_model=large --code_model=banked            /
+//                          --calling_convention=xdata_reentrant              /
+//                          --place_constants=data_rom --nr_virtual_regs 16   /
+//                          -I D:\Desktop\zigbee\Projects\zstack\Samples\Gene /
+//                          ricApp\CC2530DB\ -I D:\Desktop\zigbee\Projects\zs /
+//                          tack\Samples\GenericApp\CC2530DB\..\SOURCE\ -I    /
+//                          D:\Desktop\zigbee\Projects\zstack\Samples\Generic /
+//                          App\CC2530DB\..\..\..\ZMAIN\TI2530DB\ -I          /
+//                          D:\Desktop\zigbee\Projects\zstack\Samples\Generic /
+//                          App\CC2530DB\..\..\..\..\..\COMPONENTS\MT\ -I     /
+//                          D:\Desktop\zigbee\Projects\zstack\Samples\Generic /
+//                          App\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\INCLUD /
+//                          E\ -I D:\Desktop\zigbee\Projects\zstack\Samples\G /
+//                          enericApp\CC2530DB\..\..\..\..\..\COMPONENTS\HAL\ /
+//                          TARGET\CC2530EB\ -I D:\Desktop\zigbee\Projects\zs /
+//                          tack\Samples\GenericApp\CC2530DB\..\..\..\..\..\C /
+//                          OMPONENTS\OSAL\MCU\CCSOC\ -I                      /
+//                          D:\Desktop\zigbee\Projects\zstack\Samples\Generic /
+//                          App\CC2530DB\..\..\..\..\..\COMPONENTS\OSAL\INCLU /
+//                          DE\ -I D:\Desktop\zigbee\Projects\zstack\Samples\ /
+//                          GenericApp\CC2530DB\..\..\..\..\..\COMPONENTS\STA /
+//                          CK\AF\ -I D:\Desktop\zigbee\Projects\zstack\Sampl /
+//                          es\GenericApp\CC2530DB\..\..\..\..\..\COMPONENTS\ /
+//                          STACK\NWK\ -I D:\Desktop\zigbee\Projects\zstack\S /
+//                          amples\GenericApp\CC2530DB\..\..\..\..\..\COMPONE /
+//                          NTS\STACK\SEC\ -I D:\Desktop\zigbee\Projects\zsta /
+//                          ck\Samples\GenericApp\CC2530DB\..\..\..\..\..\COM /
+//                          PONENTS\STACK\SAPI\ -I D:\Desktop\zigbee\Projects /
+//                          \zstack\Samples\GenericApp\CC2530DB\..\..\..\..\. /
+//                          .\COMPONENTS\STACK\SYS\ -I                        /
+//                          D:\Desktop\zigbee\Projects\zstack\Samples\Generic /
+//                          App\CC2530DB\..\..\..\..\..\COMPONENTS\STACK\ZDO\ /
+//                           -I D:\Desktop\zigbee\Projects\zstack\Samples\Gen /
+//                          ericApp\CC2530DB\..\..\..\..\..\COMPONENTS\ZMAC\F /
+//                          8W\ -I D:\Desktop\zigbee\Projects\zstack\Samples\ /
+//                          GenericApp\CC2530DB\..\..\..\..\..\COMPONENTS\ZMA /
+//                          C\ -I D:\Desktop\zigbee\Projects\zstack\Samples\G /
+//                          enericApp\CC2530DB\..\..\..\..\..\COMPONENTS\SERV /
+//                          ICES\SADDR\ -I D:\Desktop\zigbee\Projects\zstack\ /
+//                          Samples\GenericApp\CC2530DB\..\..\..\..\..\COMPON /
+//                          ENTS\SERVICES\SDATA\ -I                           /
+//                          D:\Desktop\zigbee\Projects\zstack\Samples\Generic /
+//                          App\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\INCLUD /
+//                          E\ -I D:\Desktop\zigbee\Projects\zstack\Samples\G /
+//                          enericApp\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\ /
+//                          HIGH_LEVEL\ -I D:\Desktop\zigbee\Projects\zstack\ /
+//                          Samples\GenericApp\CC2530DB\..\..\..\..\..\COMPON /
+//                          ENTS\MAC\LOW_LEVEL\srf04\ -I                      /
+//                          D:\Desktop\zigbee\Projects\zstack\Samples\Generic /
+//                          App\CC2530DB\..\..\..\..\..\COMPONENTS\MAC\LOW_LE /
+//                          VEL\srf04\SINGLE_CHIP\ -Ohz                       /
+//    List file          =  D:\Desktop\zigbee\Projects\zstack\Samples\Generic /
+//                          App\CC2530DB\RouterEB-Pro\List\led_key.s51        /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME led_key
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?US_SWITCH_DENSE
+        EXTERN ?V0
+
+        PUBLIC ??beep_init?relay
+        FUNCTION ??beep_init?relay,0203H
+        PUBLIC ??led_ctrl?relay
+        FUNCTION ??led_ctrl?relay,0203H
+        PUBLIC ??led_init?relay
+        FUNCTION ??led_init?relay,0203H
+        PUBWEAK P0DIR
+        PUBWEAK P0INP
+        PUBWEAK P0SEL
+        PUBWEAK P1DIR
+        PUBWEAK P1INP
+        PUBWEAK P1SEL
+        PUBWEAK P2INP
+        PUBWEAK _A_P0
+        PUBWEAK _A_P1
+        PUBLIC beep_init
+        FUNCTION beep_init,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC led_ctrl
+        FUNCTION led_ctrl,080203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC led_init
+        FUNCTION led_init,0203H
+        ARGFRAME XSTACK, 0, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+beep_init           SYMBOL "beep_init"
+??beep_init?relay   SYMBOL "?relay", beep_init
+led_ctrl            SYMBOL "led_ctrl"
+??led_ctrl?relay    SYMBOL "?relay", led_ctrl
+led_init            SYMBOL "led_init"
+??led_init?relay    SYMBOL "?relay", led_init
+
+// D:\Desktop\zigbee\Projects\zstack\Samples\GenericApp\Source\led_key.c
+//    1 #include "iocc2530.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,080H
+// union <unnamed> volatile __sfr _A_P0
+_A_P0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,08fH
+// unsigned char volatile __sfr P0INP
+P0INP:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,090H
+// union <unnamed> volatile __sfr _A_P1
+_A_P1:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f3H
+// unsigned char volatile __sfr P0SEL
+P0SEL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f4H
+// unsigned char volatile __sfr P1SEL
+P1SEL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f6H
+// unsigned char volatile __sfr P1INP
+P1INP:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f7H
+// unsigned char volatile __sfr P2INP
+P2INP:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0fdH
+// unsigned char volatile __sfr P0DIR
+P0DIR:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0feH
+// unsigned char volatile __sfr P1DIR
+P1DIR:
+        DATA8
+        DS 1
+//    2 #include "led_key.h"
+//    3 
+//    4 /*
+//    5 @led init：对LED进行初始化
+//    6 @retval:none 
+//    7 @note:LED对应的引脚是P10和P11，初始化为普通IO，输出模式
+//    8 */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//    9 void led_init(void)
+led_init:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function led_init
+        CODE
+//   10 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   11     P1SEL &= 0xfc;  //1111 1100  把P1_0和P1_1设置为通IO模式
+        ANL     0xf4,#0xfc
+//   12     P1DIR |= 0x03;  //0000 0011  把P1_0和P1_1设置为输出模式
+        ORL     0xfe,#0x3
+//   13     P1_0 = 1;
+        SETB    0x90.0
+//   14     P1_1 = 1;
+        SETB    0x90.1
+//   15 }
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock0
+        REQUIRE P1SEL
+        REQUIRE P1DIR
+        REQUIRE _A_P1
+//   16 
+//   17 /*
+//   18 @led ctr1：对LED的状态进行控的函数
+//   19 @led num：指定对哪一盏LED等进行控制，可选择为LEDO,LED1
+//   20 @led state：指定LED的状态，可选择为 LED ON, LED OFF 
+//   21 @retval：none
+//   22 */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   23 void led_ctrl(int led_num,int led_state)
+led_ctrl:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function led_ctrl
+        CODE
+//   24 {
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+//   25     switch(led_num)
+        MOV     ?V0 + 0,R2
+        MOV     ?V0 + 1,R3
+        MOV     R0,#?V0 + 0
+        LCALL   ?US_SWITCH_DENSE
+`?<Jumptable for led_ctrl>_0`:
+        DATA
+        DATA16
+        DATA
+        DATA16
+        DW        0
+        DATA
+        DATA8
+        DATA
+        DATA8
+        DB        1
+        DATA
+        DATA16
+        DATA
+        DATA16
+        DW        ??led_ctrl_0
+        DATA
+        DATA16
+        DATA
+        DATA16
+        DW        ??led_ctrl_1
+        DATA
+        DATA16
+        DATA
+        DATA16
+        DW        ??led_ctrl_2
+        CODE
+//   26     {
+//   27     case LED0:
+//   28         P1_0 = led_state;
+??led_ctrl_1:
+        MOV     A,R4
+        MOV     C,0xE0 /* A   */.0
+        MOV     0x90.0,C
+//   29         break;
+        SJMP    ??led_ctrl_0
+//   30     case LED1:
+//   31         P1_1 = led_state;
+??led_ctrl_2:
+        MOV     A,R4
+        MOV     C,0xE0 /* A   */.0
+        MOV     0x90.1,C
+//   32         break;
+//   33     }
+//   34 }
+??led_ctrl_0:
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock1
+        REQUIRE _A_P1
+//   35 
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   36 void beep_init(void)
+beep_init:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function beep_init
+        CODE
+//   37 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   38     //P0_6上拉输出
+//   39     P0SEL &= ~(1<<6);  //1111 1100  把P0_6设置为通IO模式
+        ANL     0xf3,#0xbf
+//   40     P0DIR |= 1<<6;  //0100 0000  把P0_6设置为输出模式
+        ORL     0xfd,#0x40
+//   41     P0_6 = 1;
+        SETB    0x80.6
+//   42     
+//   43     //P0_5 霍尔元件，输入
+//   44     P0SEL &= ~(1<<5);   // 1110 1101 把P05设置为普通IO模式
+        ANL     0xf3,#0xdf
+//   45     P0DIR &= ~(1<<5);   // 1111 1101 把P05设置为输入模式
+        ANL     0xfd,#0xdf
+//   46     P0INP &= ~(1<<5);   // 1110 1111 把P05设置为上下拉模式
+        ANL     0x8f,#0xdf
+//   47     P2INP |= (1<<5);   // 1101 1111 把P0组设置为下拉模式
+        ORL     0xf7,#0x20
+//   48     P0_5 = 1;
+        SETB    0x80.5
+//   49     
+//   50     //P0_7上拉输出，继电器
+//   51     P0SEL &= ~(1<<7);  //1111 1100  把P0_6设置为通IO模式
+        ANL     0xf3,#0x7f
+//   52     P0DIR |= 1<<7;  //0100 0000  把P0_6设置为输出模式
+        ORL     0xfd,#0x80
+//   53     P0_7 = 1;
+        SETB    0x80.7
+//   54     
+//   55     
+//   56     //P1_2 R灯，输入
+//   57     P1SEL &= ~(1<<2);   // 1110 1101 把P05设置为普通IO模式
+        ANL     0xf4,#0xfb
+//   58     P1DIR &= ~(1<<2);   // 1111 1101 把P05设置为输入模式
+        ANL     0xfe,#0xfb
+//   59     P1INP &= ~(1<<2);   // 1110 1111 把P05设置为上下拉模式
+        ANL     0xf6,#0xfb
+//   60     P2INP |= (1<<6);   // 1101 1111 把P0组设置为下拉模式
+        ORL     0xf7,#0x40
+//   61     P1_2 = 0;
+        CLR     0x90.2
+//   62     
+//   63     
+//   64     //P1_3 G灯，输入
+//   65     P1SEL &= ~(1<<3);   // 1110 1101 把P05设置为普通IO模式
+        ANL     0xf4,#0xf7
+//   66     P1DIR &= ~(1<<3);   // 1111 1101 把P05设置为输入模式
+        ANL     0xfe,#0xf7
+//   67     P1INP &= ~(1<<3);   // 1110 1111 把P05设置为上下拉模式
+        ANL     0xf6,#0xf7
+//   68     P2INP |= (1<<6);   // 1101 1111 把P0组设置为下拉模式
+        ORL     0xf7,#0x40
+//   69     P1_3 = 0;
+        CLR     0x90.3
+//   70     
+//   71     //P1_7 B灯，输入
+//   72     P1SEL &= ~(1<<7);   // 1110 1101 把P05设置为普通IO模式
+        ANL     0xf4,#0x7f
+//   73     P1DIR &= ~(1<<7);   // 1111 1101 把P05设置为输入模式
+        ANL     0xfe,#0x7f
+//   74     P1INP &= ~(1<<7);   // 1110 1111 把P05设置为上下拉模式
+        ANL     0xf6,#0x7f
+//   75     P2INP |= (1<<6);   // 1101 1111 把P0组设置为下拉模式
+        ORL     0xf7,#0x40
+//   76     P1_7 = 0;
+        CLR     0x90.7
+//   77     
+//   78     //P1_6 一键报警，输入
+//   79     P1SEL &= ~(1<<6);   // 1110 1101 把P05设置为普通IO模式
+        ANL     0xf4,#0xbf
+//   80     P1DIR &= ~(1<<6);   // 1111 1101 把P05设置为输入模式
+        ANL     0xfe,#0xbf
+//   81     P1INP &= ~(1<<6);   // 1110 1111 把P05设置为上下拉模式
+        ANL     0xf6,#0xbf
+//   82     P2INP |= (1<<6);   // 1101 1111 把P0组设置为下拉模式
+        ORL     0xf7,#0x40
+//   83     P1_6 = 0;
+        CLR     0x90.6
+//   84 }
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock2
+        REQUIRE P0SEL
+        REQUIRE P0DIR
+        REQUIRE _A_P0
+        REQUIRE P0INP
+        REQUIRE P2INP
+        REQUIRE P1SEL
+        REQUIRE P1DIR
+        REQUIRE P1INP
+        REQUIRE _A_P1
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??led_init?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    led_init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??led_ctrl?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    led_ctrl
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??beep_init?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    beep_init
+
+        END
+//   85 
+// 
+// 142 bytes in segment BANKED_CODE
+//  18 bytes in segment BANK_RELAYS
+//   9 bytes in segment SFR_AN
+// 
+// 160 bytes of CODE memory
+//   0 bytes of DATA memory (+ 9 bytes shared)
+//
+//Errors: none
+//Warnings: none

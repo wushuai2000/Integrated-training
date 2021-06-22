@@ -1,0 +1,527 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V8.10.3.10338/W32 for 8051         26/May/2021  15:10:11 #
+# Copyright 2004-2011 IAR Systems AB.                                         #
+#                                                                             #
+#    Core               =  plain                                              #
+#    Code model         =  banked                                             #
+#    Data model         =  large                                              #
+#    Calling convention =  xdata reentrant                                    #
+#    Constant location  =  data_rom                                           #
+#    Dptr setup         =  1,16                                               #
+#    Source file        =  E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\Source\led #
+#                          _key.c                                             #
+#    Command line       =  -f E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3. #
+#                          0-1.4.0\Projects\zstack\Samples\GenericApp\CC2530D #
+#                          B\..\..\..\Tools\CC2530DB\f8wCoord.cfg             #
+#                          (-DCPU32MHZ -DROOT=__near_func                     #
+#                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                   #
+#                          -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f       #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\Tools\CC2530DB\f8wConfig.cfg (-DSECURE=0   #
+#                          -DZG_SECURE_DYNAMIC=0 -DREFLECTOR                  #
+#                          -DDEFAULT_CHANLIST=0x00000800                      #
+#                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                       #
+#                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MA #
+#                          SK=0x007F -DBEACON_REQUEST_DELAY=100               #
+#                          -DBEACON_REQ_DELAY_MASK=0x00FF                     #
+#                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_PO #
+#                          LLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7             #
+#                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3    #
+#                          -DNWK_MAX_DATA_RETRIES=2                           #
+#                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9         #
+#                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40           #
+#                          -DNWK_MAX_BINDING_ENTRIES=4                        #
+#                          -DMAX_BINDING_CLUSTER_IDS=4 "-DDEFAULT_KEY={0x01,  #
+#                          0x03, 0x05, 0x07, 0x09, 0x0B, 0x0D, 0x0F, 0x00,    #
+#                          0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0D}"         #
+#                          -DMAC_MAX_FRAME_SIZE=116 "-DCONST=const __code"    #
+#                          -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE     #
+#                          -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100            #
+#                          -DRESPONSE_POLL_RATE=100) -DREJOIN_POLL_RATE=440   #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\Source\led #
+#                          _key.c -D ZTOOL_P1 -D MT_TASK -D MT_SYS_FUNC -D    #
+#                          MT_ZDO_FUNC -D LCD_SUPPORTED=DEBUG -lC             #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\C #
+#                          oordinatorEB\List\ -lA E:\大三下\实训\工程文件\day #
+#                          3\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Sample #
+#                          s\GenericApp\CC2530DB\CoordinatorEB\List\          #
+#                          --diag_suppress Pe001,Pa010 -o                     #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\C #
+#                          oordinatorEB\Obj\ -e --debug --core=plain          #
+#                          --dptr=16,1 --data_model=large                     #
+#                          --code_model=banked --calling_convention=xdata_ree #
+#                          ntrant --place_constants=data_rom                  #
+#                          --nr_virtual_regs 16 -I E:\大三下\实训\工程文件\da #
+#                          y3\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Sampl #
+#                          es\GenericApp\CC2530DB\ -I                         #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\SOURCE\ -I E:\大三下\实训\工程文件\day3\ZStack-C #
+#                          C2530-2.3.0-1.4.0\Projects\zstack\Samples\GenericA #
+#                          pp\CC2530DB\..\..\..\ZMAIN\TI2530DB\ -I            #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\MT\ -I                    #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\HAL\INCLUDE\ -I           #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\HAL\TARGET\CC2530EB\ -I   #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\OSAL\MCU\CCSOC\ -I        #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\OSAL\INCLUDE\ -I          #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\STACK\AF\ -I              #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\STACK\NWK\ -I             #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\STACK\SEC\ -I             #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\STACK\SAPI\ -I            #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\STACK\SYS\ -I             #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\STACK\ZDO\ -I             #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\ZMAC\F8W\ -I              #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\ZMAC\ -I                  #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\SERVICES\SADDR\ -I        #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\SERVICES\SDATA\ -I        #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\MAC\INCLUDE\ -I           #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\MAC\HIGH_LEVEL\ -I        #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\ -I   #
+#                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\. #
+#                          .\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\SINGL #
+#                          E_CHIP\ -Ohz                                       #
+#    List file          =  E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\C #
+#                          oordinatorEB\List\led_key.lst                      #
+#    Object file        =  E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1 #
+#                          .4.0\Projects\zstack\Samples\GenericApp\CC2530DB\C #
+#                          oordinatorEB\Obj\led_key.r51                       #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Samples\GenericApp\Source\led_key.c
+      1          #include "iocc2530.h"
+
+   \                                 In  segment SFR_AN, at 0x8a
+   \   unsigned char volatile __sfr P1IFG
+   \                     P1IFG:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x8c
+   \   unsigned char volatile __sfr PICTL
+   \                     PICTL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x8d
+   \   unsigned char volatile __sfr P1IEN
+   \                     P1IEN:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x90
+   \   union <unnamed> volatile __sfr _A_P1
+   \                     _A_P1:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0x9a
+   \   unsigned char volatile __sfr IEN2
+   \                     IEN2:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xa8
+   \   union <unnamed> volatile __sfr _A_IEN0
+   \                     _A_IEN0:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xe8
+   \   union <unnamed> volatile __sfr _A_IRCON2
+   \                     _A_IRCON2:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf4
+   \   unsigned char volatile __sfr P1SEL
+   \                     P1SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf6
+   \   unsigned char volatile __sfr P1INP
+   \                     P1INP:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xf7
+   \   unsigned char volatile __sfr P2INP
+   \                     P2INP:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfe
+   \   unsigned char volatile __sfr P1DIR
+   \                     P1DIR:
+   \   000000                DS 1
+      2          #include "led_key.h"
+      3          
+      4          /*
+      5          @led init：对LED进行初始化
+      6          @retval:none 
+      7          @note:LED对应的引脚是P10和P11，初始化为普通IO，输出模式
+      8          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+      9          void led_init(void)
+   \                     led_init:
+     10          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     11              P1SEL &= 0xfc;  //1111 1100  把P1_0和P1_1设置为通IO模式
+   \   000000   53F4FC       ANL     0xf4,#0xfc
+     12              P1DIR |= 0x03;  //0000 0011  把P1_0和P1_1设置为输出模式
+   \   000003   43FE03       ORL     0xfe,#0x3
+     13              P1_0 = 0;
+   \   000006   C290         CLR     0x90.0
+     14              P1_1 = 0;
+   \   000008   C291         CLR     0x90.1
+     15          }
+   \   00000A   02....       LJMP    ?BRET
+   \   00000D                REQUIRE P1SEL
+   \   00000D                REQUIRE P1DIR
+   \   00000D                REQUIRE _A_P1
+     16          
+     17          /*
+     18          @led ctr1：对LED的状态进行控的函数
+     19          @led num：指定对哪一盏LED等进行控制，可选择为LEDO,LED1
+     20          @led state：指定LED的状态，可选择为 LED ON, LED OFF 
+     21          @retval：none
+     22          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     23          void led_ctrl(int led_num,int led_state)
+   \                     led_ctrl:
+     24          {
+   \   000000   74F6         MOV     A,#-0xa
+   \   000002   12....       LCALL   ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 10
+   \   000005                ; Auto size: 0
+     25              switch(led_num)
+   \   000005   8A..         MOV     ?V0 + 0,R2
+   \   000007   8B..         MOV     ?V0 + 1,R3
+   \   000009   78..         MOV     R0,#?V0 + 0
+   \   00000B   12....       LCALL   ?US_SWITCH_DENSE
+   \                     `?<Jumptable for led_ctrl>_0`:
+   \   00000E   0000         DW        0
+   \   000010   01           DB        1
+   \   000011   ....         DW        ??led_ctrl_0
+   \   000013   ....         DW        ??led_ctrl_1
+   \   000015   ....         DW        ??led_ctrl_2
+     26              {
+     27              case LED0:
+     28                  P1_0 = led_state;
+   \                     ??led_ctrl_1:
+   \   000017   EC           MOV     A,R4
+   \   000018   A2E0         MOV     C,0xE0 /* A   */.0
+   \   00001A   9290         MOV     0x90.0,C
+     29                  break;
+   \   00001C   8005         SJMP    ??led_ctrl_0
+     30              case LED1:
+     31                  P1_1 = led_state;
+   \                     ??led_ctrl_2:
+   \   00001E   EC           MOV     A,R4
+   \   00001F   A2E0         MOV     C,0xE0 /* A   */.0
+   \   000021   9291         MOV     0x90.1,C
+     32                  break;
+     33              }
+     34          }
+   \                     ??led_ctrl_0:
+   \   000023   7F02         MOV     R7,#0x2
+   \   000025   02....       LJMP    ?BANKED_LEAVE_XDATA
+   \   000028                REQUIRE _A_P1
+     35          
+     36          /*
+     37          @key init：按键的初始化函数
+     38          @retval none 
+     39          @note：按键应的引是P12，应初始化为普通IO，上拉输入模式
+     40          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     41          void key_init(void)
+   \                     key_init:
+     42          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     43              P1SEL &= 0xFB;   // 1111 1011 把P12设置为普通IO模式
+   \   000000   53F4FB       ANL     0xf4,#0xfb
+     44              P1DIR &= 0xFB;   // 1111 1011 把P12设置为输入模式
+   \   000003   53FEFB       ANL     0xfe,#0xfb
+     45              P1INP &= 0xFB;   // 1111 1011 把P12设置为上下拉模式
+   \   000006   53F6FB       ANL     0xf6,#0xfb
+     46              P2INP &= 0xBF;   // 1011 1111 把P1组设置为上拉模式
+   \   000009   53F7BF       ANL     0xf7,#0xbf
+     47          }
+   \   00000C   02....       LJMP    ?BRET
+   \   00000F                REQUIRE P1SEL
+   \   00000F                REQUIRE P1DIR
+   \   00000F                REQUIRE P1INP
+   \   00000F                REQUIRE P2INP
+     48          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     49          int key_status(void)
+   \                     key_status:
+     50          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     51              return P1_2;
+   \   000000   A292         MOV     C,0x90.2
+   \   000002   E4           CLR     A
+   \   000003   33           RLC     A
+   \   000004   FA           MOV     R2,A
+   \   000005   7B00         MOV     R3,#0x0
+   \   000007   02....       LJMP    ?BRET
+   \   00000A                REQUIRE _A_P1
+     52          }
+     53          
+     54          /*
+     55          @exti_init：中断初始化函数
+     56          @retval none 
+     57          @note：none
+     58          */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     59          void exti_init()
+   \                     exti_init:
+     60          {
+   \   000000   C082         PUSH    DPL
+   \   000002   C083         PUSH    DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+     61            //(1)初始化IO口工作在普通IO模式，上拉输入状态
+     62              key_init();
+   \   000004                ; Setup parameters for call to function key_init
+   \   000004   12....       LCALL   ??key_init?relay
+     63              //(2)首先打开IO口组中断允许位===>PxIE
+     64              IEN2 |= 1<<4;   //0001 0000 0x10
+   \   000007   439A10       ORL     0x9a,#0x10
+     65              //(3)打开组内对应的具体某IO口中断====>PxIEN
+     66              P1IEN |= 1<<2;  //0000 0100 0x40
+   \   00000A   438D04       ORL     0x8d,#0x4
+     67              //(4)设置是上升沿还是下降沿触发===>PICTL(0,代表上升沿触发；1，代表下降沿触发)
+     68              PICTL |= 1<<1;  //0000 0010 0x02 设置为下降沿触发
+   \   00000D   438C02       ORL     0x8c,#0x2
+     69              //(5)打开CPU总中断 EA=1;
+     70              EA = 1;
+   \   000010   D2AF         SETB    0xa8.7
+     71          }
+   \   000012   D083         POP     DPH
+   \   000014   D082         POP     DPL
+   \   000016   02....       LJMP    ?BRET
+   \   000019                REQUIRE IEN2
+   \   000019                REQUIRE P1IEN
+   \   000019                REQUIRE PICTL
+   \   000019                REQUIRE _A_IEN0
+     72          
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+     73          void delay_ms(int n)
+   \                     delay_ms:
+     74          {
+   \   000000                ; Saved register size: 0
+   \   000000                ; Auto size: 0
+     75               int i;
+     76               while(n--)
+   \                     ??delay_ms_0:
+   \   000000   EA           MOV     A,R2
+   \   000001   F8           MOV     R0,A
+   \   000002   EB           MOV     A,R3
+   \   000003   F9           MOV     R1,A
+   \   000004   E8           MOV     A,R0
+   \   000005   24FF         ADD     A,#-0x1
+   \   000007   1A           DEC     R2
+   \   000008   E9           MOV     A,R1
+   \   000009   34FF         ADDC    A,#-0x1
+   \   00000B   FB           MOV     R3,A
+   \   00000C   E8           MOV     A,R0
+   \   00000D   49           ORL     A,R1
+   \   00000E   70F0         JNZ     ??delay_ms_0
+     77                   for(i=0;i<587;i++);
+     78          }
+   \   000010   02....       LJMP    ?BRET
+     79          
+     80          #pragma optimize=none       //不进行编译优化
+     81          #pragma vector=P1INT_VECTOR //P1组引发中断,vector中断矢量表,下面这段代码必须放在这个地方
+
+   \                                 In  segment NEAR_CODE, align 1, keep-with-next
+     82          __interrupt void exint(void)//P1组
+   \                     exint:
+     83          {
+   \   000000   C0E0         PUSH    A
+   \   000002   74F2         MOV     A,#-0xe
+   \   000004   12....       LCALL   ?INTERRUPT_ENTER_XSP
+   \   000007                ; Saved register size: 14
+   \   000007                ; Auto size: 0
+     84                if(P1IFG & 0X04)//0000 0100
+   \   000007   E58A         MOV     A,0x8a
+   \   000009   A2E2         MOV     C,0xE0 /* A   */.2
+   \   00000B   501F         JNC     ??exint_0
+     85                {//确定是P1_2产生了外部中断
+     86                       delay_ms(20); //按键消抖
+   \   00000D                ; Setup parameters for call to function delay_ms
+   \   00000D   7A14         MOV     R2,#0x14
+   \   00000F   7B00         MOV     R3,#0x0
+   \   000011   12....       LCALL   ??delay_ms?relay
+     87                       if(P1_2 == 0)
+   \   000014   A292         MOV     C,0x90.2
+   \   000016   4014         JC      ??exint_0
+     88                      {
+     89          	        //中断要做的事情
+     90                          P1_0 = !P1_0;
+   \   000018   D2F0         SETB    B.0
+   \   00001A   A290         MOV     C,0x90.0
+   \   00001C   30F001       JNB     B.0,??exint_1
+   \   00001F   B3           CPL     C
+   \                     ??exint_1:
+   \   000020   9290         MOV     0x90.0,C
+     91                          P1_1 = !P1_1;
+   \   000022   D2F0         SETB    B.0
+   \   000024   A291         MOV     C,0x90.1
+   \   000026   30F001       JNB     B.0,??exint_2
+   \   000029   B3           CPL     C
+   \                     ??exint_2:
+   \   00002A   9291         MOV     0x90.1,C
+     92                      }
+     93          		
+     94                }
+     95                P1IFG = 0;//把中断状态标志位清0
+   \                     ??exint_0:
+   \   00002C   758A00       MOV     0x8a,#0x0
+     96                P1IF = 0; //组中断标志位清0
+   \   00002F   C2EB         CLR     0xe8.3
+     97          }
+   \   000031   7F01         MOV     R7,#0x1
+   \   000033   02....       LJMP    ?INTERRUPT_LEAVE_XSP
+   \   000036                REQUIRE P1IFG
+   \   000036                REQUIRE _A_P1
+   \   000036                REQUIRE _A_IRCON2
+
+   \                                 In  segment INTVEC, offset 0x7b, root
+   \                     `??exint??INTVEC 123`:
+   \   00007B   02....       LJMP       (exint)
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??led_init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    led_init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??led_ctrl?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    led_ctrl
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??key_init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    key_init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??key_status?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    key_status
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??exti_init?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    exti_init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     ??delay_ms?relay:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    delay_ms
+     98          	
+
+   Maximum stack usage in bytes:
+
+     Function      ISTACK PSTACK XSTACK
+     --------      ------ ------ ------
+     delay_ms          0      0     14
+     exint             0      0     14
+       -> delay_ms     0      0     28
+     exti_init         2      0      0
+       -> key_init     4      0      0
+     key_init          0      0      0
+     key_status        0      0      0
+     led_ctrl          0      0     10
+     led_init          0      0      0
+
+
+   Segment part sizes:
+
+     Function/Label      Bytes
+     --------------      -----
+     P1IFG                  1
+     PICTL                  1
+     P1IEN                  1
+     _A_P1                  1
+     IEN2                   1
+     _A_IEN0                1
+     _A_IRCON2              1
+     P1SEL                  1
+     P1INP                  1
+     P2INP                  1
+     P1DIR                  1
+     led_init              13
+     led_ctrl              40
+     key_init              15
+     key_status            10
+     exti_init             25
+     delay_ms              19
+     exint                 54
+     ??exint??INTVEC 123    3
+     ??led_init?relay       6
+     ??led_ctrl?relay       6
+     ??key_init?relay       6
+     ??key_status?relay     6
+     ??exti_init?relay      6
+     ??delay_ms?relay       6
+
+ 
+ 122 bytes in segment BANKED_CODE
+  36 bytes in segment BANK_RELAYS
+   3 bytes in segment INTVEC
+  54 bytes in segment NEAR_CODE
+  11 bytes in segment SFR_AN
+ 
+ 212 bytes of CODE memory (+  3 bytes shared)
+   0 bytes of DATA memory (+ 11 bytes shared)
+
+Errors: none
+Warnings: none

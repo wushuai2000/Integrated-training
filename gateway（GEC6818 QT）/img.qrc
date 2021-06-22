@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>img/Debian.png</file>
+        <file>img/bg.png</file>
+        <file>img/beep_off.png</file>
+        <file>img/beep_on.png</file>
+        <file>img/led_off.png</file>
+        <file>img/led_on.png</file>
+        <file>img/ok.png</file>
+        <file>img/ok1.png</file>
+        <file>img/ok2.png</file>
+        <file>img/off.png</file>
+        <file>img/on.png</file>
+        <file>img/window_off.png</file>
+        <file>img/window_on.png</file>
+    </qresource>
+</RCC>

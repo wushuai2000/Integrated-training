@@ -1,0 +1,1168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#centralWidget
+{
+	border-image: url(:/new/prefix1/img/bg.png);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="label_title">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>0</y>
+      <width>451</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>25</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: #9E4F35;</string>
+    </property>
+    <property name="text">
+     <string>智能家居控制系统</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_temp">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>60</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 255)</string>
+    </property>
+    <property name="text">
+     <string>当前温度：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_humidity">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>110</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 0, 255)</string>
+    </property>
+    <property name="text">
+     <string>当前湿度：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_temp_num_symbol">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>60</y>
+      <width>46</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 158, 0);</string>
+    </property>
+    <property name="text">
+     <string>℃</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_temp_num">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>60</y>
+      <width>46</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 158, 0);</string>
+    </property>
+    <property name="text">
+     <string>20</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_humidity_num">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>110</y>
+      <width>46</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 158, 0);</string>
+    </property>
+    <property name="text">
+     <string>20</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_humidity_num_symbol">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>110</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 158, 0);</string>
+    </property>
+    <property name="text">
+     <string>%rh</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_beep">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>180</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(255, 133, 102)</string>
+    </property>
+    <property name="text">
+     <string>Beep状态：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_beep_status">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>180</y>
+      <width>50</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sitting_led">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>60</y>
+      <width>32</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sitting">
+    <property name="geometry">
+     <rect>
+      <x>569</x>
+      <y>60</y>
+      <width>131</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>客厅灯：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_kitchen">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>100</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>厨房灯：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_bedroom">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>140</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>卧室灯：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_toilet">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>180</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>15</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>厕所灯：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_bedroom_led">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>140</y>
+      <width>32</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_kitchen_led">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>100</y>
+      <width>32</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_toilet_led">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>180</y>
+      <width>32</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_sitting_status">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>65</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    /*字体大小为20点*/
+    font-size:16pt;
+    /*字体颜色为白色*/    
+    color:white;
+    /*背景颜色*/  
+    background-color:rgb(14 , 150 , 254);
+    /*边框圆角半径为8像素*/ 
+    border-radius:8px;
+	border-image: url(:/new/prefix1/img/ok.png)
+}
+QPushButton:hover{
+	background-color:rgb(44 , 137 , 255);
+	border-image: url(:/new/prefix1/img/ok.png);
+}
+QPushButton:pressed{
+    /*背景颜色*/  
+    background-color:rgb(14 , 135 , 228);
+    /*左内边距为3像素，让按下时字向右移动3像素*/  
+    padding-left:3px;
+    /*上内边距为3像素，让按下时字向下移动3像素*/  
+    padding-top:3px;
+	border-image: url(:/new/prefix1/img/ok1.png);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string>Return</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_kitchen_status">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>105</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    /*字体大小为20点*/
+    font-size:16pt;
+    /*字体颜色为白色*/    
+    color:white;
+    /*背景颜色*/  
+    background-color:rgb(14 , 150 , 254);
+    /*边框圆角半径为8像素*/ 
+    border-radius:8px;
+	border-image: url(:/new/prefix1/img/ok.png)
+}
+QPushButton:hover{
+	background-color:rgb(44 , 137 , 255);
+	border-image: url(:/new/prefix1/img/ok.png);
+}
+QPushButton:pressed{
+    /*背景颜色*/  
+    background-color:rgb(14 , 135 , 228);
+    /*左内边距为3像素，让按下时字向右移动3像素*/  
+    padding-left:3px;
+    /*上内边距为3像素，让按下时字向下移动3像素*/  
+    padding-top:3px;
+	border-image: url(:/new/prefix1/img/ok1.png);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string>Return</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_bedroom_status">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>145</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    /*字体大小为20点*/
+    font-size:16pt;
+    /*字体颜色为白色*/    
+    color:white;
+    /*背景颜色*/  
+    background-color:rgb(14 , 150 , 254);
+    /*边框圆角半径为8像素*/ 
+    border-radius:8px;
+	border-image: url(:/new/prefix1/img/ok.png)
+}
+QPushButton:hover{
+	background-color:rgb(44 , 137 , 255);
+	border-image: url(:/new/prefix1/img/ok.png);
+}
+QPushButton:pressed{
+    /*背景颜色*/  
+    background-color:rgb(14 , 135 , 228);
+    /*左内边距为3像素，让按下时字向右移动3像素*/  
+    padding-left:3px;
+    /*上内边距为3像素，让按下时字向下移动3像素*/  
+    padding-top:3px;
+	border-image: url(:/new/prefix1/img/ok1.png);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string>Return</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_toilet_status">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>185</y>
+      <width>30</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    /*字体大小为20点*/
+    font-size:16pt;
+    /*字体颜色为白色*/    
+    color:white;
+    /*背景颜色*/  
+    background-color:rgb(14 , 150 , 254);
+    /*边框圆角半径为8像素*/ 
+    border-radius:8px;
+	border-image: url(:/new/prefix1/img/ok.png)
+}
+QPushButton:hover{
+	background-color:rgb(44 , 137 , 255);
+	border-image: url(:/new/prefix1/img/ok.png);
+}
+QPushButton:pressed{
+    /*背景颜色*/  
+    background-color:rgb(14 , 135 , 228);
+    /*左内边距为3像素，让按下时字向右移动3像素*/  
+    padding-left:3px;
+    /*上内边距为3像素，让按下时字向下移动3像素*/  
+    padding-top:3px;
+	border-image: url(:/new/prefix1/img/ok1.png);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string>Return</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_air">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>230</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(255, 133, 102)</string>
+    </property>
+    <property name="text">
+     <string>空调状态：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_tv">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>280</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(255, 133, 102)</string>
+    </property>
+    <property name="text">
+     <string>电视状态：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_wash">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>330</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(255, 133, 102)</string>
+    </property>
+    <property name="text">
+     <string>洗衣机状态：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_air_status">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>230</y>
+      <width>40</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_tv_status">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>280</y>
+      <width>40</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_wash_status">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>330</y>
+      <width>40</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_weather">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>120</y>
+      <width>151</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;
+color:#000000;
+background-color: rgba(255, 255, 255, 0%);
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_temperature">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>170</y>
+      <width>151</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;
+color:#000000;
+background-color: rgba(255, 255, 255, 0%);
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_wind">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>220</y>
+      <width>151</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;
+color:#000000;
+background-color: rgba(255, 255, 255, 0%);
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_weather">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>120</y>
+      <width>91</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+    /*字体大小为20点*/
+    font-size:16pt;
+    /*字体颜色为白色*/    
+    color:white;
+    /*背景颜色*/  
+    //background-color:rgb(14 , 150 , 254);
+    /*边框圆角半径为8像素*/ 
+    border-radius:8px;
+	border-image: url(:/new/prefix1/img/ok1.png)
+}</string>
+    </property>
+    <property name="text">
+     <string>天气：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_temperature">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>170</y>
+      <width>91</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+    /*字体大小为20点*/
+    font-size:16pt;
+    /*字体颜色为白色*/    
+    color:white;
+    /*背景颜色*/  
+    //background-color:rgb(14 , 150 , 254);
+    /*边框圆角半径为8像素*/ 
+    border-radius:8px;
+	border-image: url(:/new/prefix1/img/ok1.png)
+}</string>
+    </property>
+    <property name="text">
+     <string>温度：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_wind">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>220</y>
+      <width>91</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+    /*字体大小为20点*/
+    font-size:16pt;
+    /*字体颜色为白色*/    
+    color:white;
+    /*背景颜色*/  
+    //background-color:rgb(14 , 150 , 254);
+    /*边框圆角半径为8像素*/ 
+    border-radius:8px;
+	border-image: url(:/new/prefix1/img/ok1.png)
+}</string>
+    </property>
+    <property name="text">
+     <string>风力：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_prompt">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>270</y>
+      <width>151</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+    /*字体大小为20点*/
+    font-size:16pt;
+    /*字体颜色为白色*/    
+    color:white;
+    /*背景颜色*/  
+    //background-color:rgb(14 , 150 , 254);
+    /*边框圆角半径为8像素*/ 
+    border-radius:8px;
+	border-image: url(:/new/prefix1/img/ok1.png)
+}</string>
+    </property>
+    <property name="text">
+     <string>温馨提示：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_prompt">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>270</y>
+      <width>341</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;
+color:#000000;
+background-color: rgba(255, 255, 255, 0%);
+</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_city">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>70</y>
+      <width>91</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel{
+    /*字体大小为20点*/
+    font-size:16pt;
+    /*字体颜色为白色*/    
+    color:white;
+    /*背景颜色*/  
+    //background-color:rgb(14 , 150 , 254);
+    /*边框圆角半径为8像素*/ 
+    border-radius:8px;
+	border-image: url(:/new/prefix1/img/ok1.png)
+}</string>
+    </property>
+    <property name="text">
+     <string>城市：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_city">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>70</y>
+      <width>151</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;
+color:#000000;
+background-color: rgba(255, 255, 255, 0%);
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string/>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_update_weather">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>380</y>
+      <width>211</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    /*字体大小为20点*/
+    font-size:14pt;
+    /*字体颜色为白色*/    
+    color:red;
+    /*背景颜色*/  
+    background-color:rgb(14 , 150 , 254);
+    /*边框圆角半径为8像素*/ 
+    border-radius:8px;
+	border-image: url(:/new/prefix1/img/ok.png)
+}
+QPushButton:hover{
+	background-color:rgb(44 , 137 , 255);
+	border-image: url(:/new/prefix1/img/ok.png);
+}
+QPushButton:pressed{
+    /*背景颜色*/  
+    background-color:rgb(14 , 135 , 228);
+    /*左内边距为3像素，让按下时字向右移动3像素*/  
+    padding-left:3px;
+    /*上内边距为3像素，让按下时字向下移动3像素*/  
+    padding-top:3px;
+	border-image: url(:/new/prefix1/img/ok1.png);
+}</string>
+    </property>
+    <property name="text">
+     <string>更新天气数据</string>
+    </property>
+    <property name="shortcut">
+     <string>Return</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_window">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>380</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(255, 133, 102)</string>
+    </property>
+    <property name="text">
+     <string>窗户状态：</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_window_status">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>380</y>
+      <width>40</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

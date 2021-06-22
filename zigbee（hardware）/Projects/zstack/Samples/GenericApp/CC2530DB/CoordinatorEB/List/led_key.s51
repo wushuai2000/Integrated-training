@@ -1,0 +1,858 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V8.10.3.10338/W32 for 8051        26/May/2021  15:10:11 /
+// Copyright 2004-2011 IAR Systems AB.                                        /
+//                                                                            /
+//    Core               =  plain                                             /
+//    Code model         =  banked                                            /
+//    Data model         =  large                                             /
+//    Calling convention =  xdata reentrant                                   /
+//    Constant location  =  data_rom                                          /
+//    Dptr setup         =  1,16                                              /
+//    Source file        =  E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\Source\l /
+//                          ed_key.c                                          /
+//    Command line       =  -f E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3 /
+//                          .0-1.4.0\Projects\zstack\Samples\GenericApp\CC253 /
+//                          0DB\..\..\..\Tools\CC2530DB\f8wCoord.cfg          /
+//                          (-DCPU32MHZ -DROOT=__near_func                    /
+//                          -DMAC_CFG_APP_PENDING_QUEUE=TRUE                  /
+//                          -DZDO_COORDINATOR -DRTR_NWK -DBLINK_LEDS) -f      /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\Tools\CC2530DB\f8wConfig.cfg            /
+//                          (-DSECURE=0 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR     /
+//                          -DDEFAULT_CHANLIST=0x00000800                     /
+//                          -DZDAPP_CONFIG_PAN_ID=0xFFFF                      /
+//                          -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_M /
+//                          ASK=0x007F -DBEACON_REQUEST_DELAY=100             /
+//                          -DBEACON_REQ_DELAY_MASK=0x00FF                    /
+//                          -DROUTE_EXPIRY_TIME=30 -DAPSC_ACK_WAIT_DURATION_P /
+//                          OLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7           /
+//                          -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3   /
+//                          -DNWK_MAX_DATA_RETRIES=2                          /
+//                          -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9        /
+//                          -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40          /
+//                          -DNWK_MAX_BINDING_ENTRIES=4                       /
+//                          -DMAX_BINDING_CLUSTER_IDS=4                       /
+//                          "-DDEFAULT_KEY={0x01, 0x03, 0x05, 0x07, 0x09,     /
+//                          0x0B, 0x0D, 0x0F, 0x00, 0x02, 0x04, 0x06, 0x08,   /
+//                          0x0A, 0x0C, 0x0D}" -DMAC_MAX_FRAME_SIZE=116       /
+//                          "-DCONST=const __code" -DGENERIC=__generic        /
+//                          -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000       /
+//                          -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100)  /
+//                          -DREJOIN_POLL_RATE=440 E:\大三下\实训\工程文件\da /
+//                          y3\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Samp /
+//                          les\GenericApp\Source\led_key.c -D ZTOOL_P1 -D    /
+//                          MT_TASK -D MT_SYS_FUNC -D MT_ZDO_FUNC -D          /
+//                          LCD_SUPPORTED=DEBUG -lC                           /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \CoordinatorEB\List\ -lA                          /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \CoordinatorEB\List\ --diag_suppress Pe001,Pa010  /
+//                          -o E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3 /
+//                          .0-1.4.0\Projects\zstack\Samples\GenericApp\CC253 /
+//                          0DB\CoordinatorEB\Obj\ -e --debug --core=plain    /
+//                          --dptr=16,1 --data_model=large                    /
+//                          --code_model=banked --calling_convention=xdata_re /
+//                          entrant --place_constants=data_rom                /
+//                          --nr_virtual_regs 16 -I                           /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \ -I E:\大三下\实训\工程文件\day3\ZStack-CC2530-2 /
+//                          .3.0-1.4.0\Projects\zstack\Samples\GenericApp\CC2 /
+//                          530DB\..\SOURCE\ -I E:\大三下\实训\工程文件\day3\ /
+//                          ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Samples /
+//                          \GenericApp\CC2530DB\..\..\..\ZMAIN\TI2530DB\ -I  /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\MT\ -I                 /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\HAL\INCLUDE\ -I        /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\HAL\TARGET\CC2530EB\   /
+//                          -I E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3 /
+//                          .0-1.4.0\Projects\zstack\Samples\GenericApp\CC253 /
+//                          0DB\..\..\..\..\..\COMPONENTS\OSAL\MCU\CCSOC\ -I  /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\OSAL\INCLUDE\ -I       /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\STACK\AF\ -I           /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\STACK\NWK\ -I          /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\STACK\SEC\ -I          /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\STACK\SAPI\ -I         /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\STACK\SYS\ -I          /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\STACK\ZDO\ -I          /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\ZMAC\F8W\ -I           /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\ZMAC\ -I               /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\SERVICES\SADDR\ -I     /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\SERVICES\SDATA\ -I     /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\MAC\INCLUDE\ -I        /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\MAC\HIGH_LEVEL\ -I     /
+//                          E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \..\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04\   /
+//                          -I E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3 /
+//                          .0-1.4.0\Projects\zstack\Samples\GenericApp\CC253 /
+//                          0DB\..\..\..\..\..\COMPONENTS\MAC\LOW_LEVEL\srf04 /
+//                          \SINGLE_CHIP\ -Ohz                                /
+//    List file          =  E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0- /
+//                          1.4.0\Projects\zstack\Samples\GenericApp\CC2530DB /
+//                          \CoordinatorEB\List\led_key.s51                   /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME led_key
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+        EXTERN ?BANKED_ENTER_XDATA
+        EXTERN ?BANKED_LEAVE_XDATA
+        EXTERN ?BDISPATCH
+        EXTERN ?BRET
+        EXTERN ?INTERRUPT_ENTER_XSP
+        EXTERN ?INTERRUPT_LEAVE_XSP
+        EXTERN ?US_SWITCH_DENSE
+        EXTERN ?V0
+
+        PUBLIC ??delay_ms?relay
+        FUNCTION ??delay_ms?relay,0203H
+        PUBWEAK `??exint??INTVEC 123`
+        PUBLIC ??exti_init?relay
+        FUNCTION ??exti_init?relay,0203H
+        PUBLIC ??key_init?relay
+        FUNCTION ??key_init?relay,0203H
+        PUBLIC ??key_status?relay
+        FUNCTION ??key_status?relay,0203H
+        PUBLIC ??led_ctrl?relay
+        FUNCTION ??led_ctrl?relay,0203H
+        PUBLIC ??led_init?relay
+        FUNCTION ??led_init?relay,0203H
+        PUBWEAK IEN2
+        PUBWEAK P1DIR
+        PUBWEAK P1IEN
+        PUBWEAK P1IFG
+        PUBWEAK P1INP
+        PUBWEAK P1SEL
+        PUBWEAK P2INP
+        PUBWEAK PICTL
+        PUBWEAK _A_IEN0
+        PUBWEAK _A_IRCON2
+        PUBWEAK _A_P1
+        PUBLIC delay_ms
+        FUNCTION delay_ms,0203H
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUBLIC exint
+        FUNCTION exint,021233H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        PUBLIC exti_init
+        FUNCTION exti_init,021201H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME ISTACK, 2, STACK
+        PUBLIC key_init
+        FUNCTION key_init,0203H
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUBLIC key_status
+        FUNCTION key_status,0203H
+        ARGFRAME XSTACK, 0, STACK
+        PUBLIC led_ctrl
+        FUNCTION led_ctrl,080203H
+        ARGFRAME XSTACK, 0, STACK
+        LOCFRAME XSTACK, 10, STACK
+        PUBLIC led_init
+        FUNCTION led_init,0203H
+        ARGFRAME XSTACK, 0, STACK
+        
+        CFI Names cfiNames0
+        CFI StackFrame CFA_SP SP IDATA
+        CFI StackFrame CFA_PSP16 PSP16 XDATA
+        CFI StackFrame CFA_XSP16 XSP16 XDATA
+        CFI StaticOverlayFrame CFA_IOVERLAY IOVERLAY
+        CFI StaticOverlayFrame CFA_DOVERLAY DOVERLAY
+        CFI Resource `PSW.CY`:1, `B.BR0`:1, `B.BR1`:1, `B.BR2`:1, `B.BR3`:1
+        CFI Resource `B.BR4`:1, `B.BR5`:1, `B.BR6`:1, `B.BR7`:1, `VB.BR8`:1
+        CFI Resource `VB.BR9`:1, `VB.BR10`:1, `VB.BR11`:1, `VB.BR12`:1
+        CFI Resource `VB.BR13`:1, `VB.BR14`:1, `VB.BR15`:1, VB:8, B:8, A:8
+        CFI Resource PSW:8, DPL0:8, DPH0:8, R0:8, R1:8, R2:8, R3:8, R4:8, R5:8
+        CFI Resource R6:8, R7:8, V0:8, V1:8, V2:8, V3:8, V4:8, V5:8, V6:8, V7:8
+        CFI Resource V8:8, V9:8, V10:8, V11:8, V12:8, V13:8, V14:8, V15:8, SP:8
+        CFI Resource PSPH:8, PSPL:8, PSP16:16, XSPH:8, XSPL:8, XSP16:16
+        CFI VirtualResource ?RET:24
+        CFI Resource ?BRET_EXT:8
+        CFI VirtualResource ?RET_HIGH:8, ?RET_LOW:8
+        CFI ResourceParts PSP16 PSPH, PSPL
+        CFI ResourceParts XSP16 XSPH, XSPL
+        CFI ResourceParts ?RET ?BRET_EXT, ?RET_HIGH, ?RET_LOW
+        CFI EndNames cfiNames0
+        
+        CFI Common cfiCommon0 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-3
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B Undefined
+        CFI A Undefined
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 Undefined
+        CFI R1 Undefined
+        CFI R2 Undefined
+        CFI R3 Undefined
+        CFI R4 Undefined
+        CFI R5 Undefined
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT Frame(CFA_SP, 3)
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon0
+        
+        
+        CFI Common cfiCommon1 Using cfiNames0
+        CFI CodeAlign 1
+        CFI DataAlign -1
+        CFI ReturnAddress ?RET CODE
+        CFI CFA_DOVERLAY Used
+        CFI CFA_IOVERLAY Used
+        CFI CFA_SP SP+-2
+        CFI CFA_PSP16 PSP16+0
+        CFI CFA_XSP16 XSP16+0
+        CFI `PSW.CY` SameValue
+        CFI `B.BR0` SameValue
+        CFI `B.BR1` SameValue
+        CFI `B.BR2` SameValue
+        CFI `B.BR3` SameValue
+        CFI `B.BR4` SameValue
+        CFI `B.BR5` SameValue
+        CFI `B.BR6` SameValue
+        CFI `B.BR7` SameValue
+        CFI `VB.BR8` SameValue
+        CFI `VB.BR9` SameValue
+        CFI `VB.BR10` SameValue
+        CFI `VB.BR11` SameValue
+        CFI `VB.BR12` SameValue
+        CFI `VB.BR13` SameValue
+        CFI `VB.BR14` SameValue
+        CFI `VB.BR15` SameValue
+        CFI VB SameValue
+        CFI B SameValue
+        CFI A SameValue
+        CFI PSW SameValue
+        CFI DPL0 SameValue
+        CFI DPH0 SameValue
+        CFI R0 SameValue
+        CFI R1 SameValue
+        CFI R2 SameValue
+        CFI R3 SameValue
+        CFI R4 SameValue
+        CFI R5 SameValue
+        CFI R6 SameValue
+        CFI R7 SameValue
+        CFI V0 SameValue
+        CFI V1 SameValue
+        CFI V2 SameValue
+        CFI V3 SameValue
+        CFI V4 SameValue
+        CFI V5 SameValue
+        CFI V6 SameValue
+        CFI V7 SameValue
+        CFI V8 SameValue
+        CFI V9 SameValue
+        CFI V10 SameValue
+        CFI V11 SameValue
+        CFI V12 SameValue
+        CFI V13 SameValue
+        CFI V14 SameValue
+        CFI V15 SameValue
+        CFI PSPH Undefined
+        CFI PSPL Undefined
+        CFI XSPH Undefined
+        CFI XSPL Undefined
+        CFI ?RET Concat
+        CFI ?BRET_EXT SameValue
+        CFI ?RET_HIGH Frame(CFA_SP, 2)
+        CFI ?RET_LOW Frame(CFA_SP, 1)
+        CFI EndCommon cfiCommon1
+        
+delay_ms            SYMBOL "delay_ms"
+??delay_ms?relay    SYMBOL "?relay", delay_ms
+exint               SYMBOL "exint"
+`??exint??INTVEC 123` SYMBOL "??INTVEC 123", exint
+exti_init           SYMBOL "exti_init"
+??exti_init?relay   SYMBOL "?relay", exti_init
+key_init            SYMBOL "key_init"
+??key_init?relay    SYMBOL "?relay", key_init
+key_status          SYMBOL "key_status"
+??key_status?relay  SYMBOL "?relay", key_status
+led_ctrl            SYMBOL "led_ctrl"
+??led_ctrl?relay    SYMBOL "?relay", led_ctrl
+led_init            SYMBOL "led_init"
+??led_init?relay    SYMBOL "?relay", led_init
+
+// E:\大三下\实训\工程文件\day3\ZStack-CC2530-2.3.0-1.4.0\Projects\zstack\Samples\GenericApp\Source\led_key.c
+//    1 #include "iocc2530.h"
+
+        ASEGN SFR_AN:DATA:NOROOT,08aH
+// unsigned char volatile __sfr P1IFG
+P1IFG:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,08cH
+// unsigned char volatile __sfr PICTL
+PICTL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,08dH
+// unsigned char volatile __sfr P1IEN
+P1IEN:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,090H
+// union <unnamed> volatile __sfr _A_P1
+_A_P1:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,09aH
+// unsigned char volatile __sfr IEN2
+IEN2:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0a8H
+// union <unnamed> volatile __sfr _A_IEN0
+_A_IEN0:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0e8H
+// union <unnamed> volatile __sfr _A_IRCON2
+_A_IRCON2:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f4H
+// unsigned char volatile __sfr P1SEL
+P1SEL:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f6H
+// unsigned char volatile __sfr P1INP
+P1INP:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0f7H
+// unsigned char volatile __sfr P2INP
+P2INP:
+        DATA8
+        DS 1
+
+        ASEGN SFR_AN:DATA:NOROOT,0feH
+// unsigned char volatile __sfr P1DIR
+P1DIR:
+        DATA8
+        DS 1
+//    2 #include "led_key.h"
+//    3 
+//    4 /*
+//    5 @led init：对LED进行初始化
+//    6 @retval:none 
+//    7 @note:LED对应的引脚是P10和P11，初始化为普通IO，输出模式
+//    8 */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//    9 void led_init(void)
+led_init:
+        CFI Block cfiBlock0 Using cfiCommon0
+        CFI Function led_init
+        CODE
+//   10 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   11     P1SEL &= 0xfc;  //1111 1100  把P1_0和P1_1设置为通IO模式
+        ANL     0xf4,#0xfc
+//   12     P1DIR |= 0x03;  //0000 0011  把P1_0和P1_1设置为输出模式
+        ORL     0xfe,#0x3
+//   13     P1_0 = 0;
+        CLR     0x90.0
+//   14     P1_1 = 0;
+        CLR     0x90.1
+//   15 }
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock0
+        REQUIRE P1SEL
+        REQUIRE P1DIR
+        REQUIRE _A_P1
+//   16 
+//   17 /*
+//   18 @led ctr1：对LED的状态进行控的函数
+//   19 @led num：指定对哪一盏LED等进行控制，可选择为LEDO,LED1
+//   20 @led state：指定LED的状态，可选择为 LED ON, LED OFF 
+//   21 @retval：none
+//   22 */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   23 void led_ctrl(int led_num,int led_state)
+led_ctrl:
+        CFI Block cfiBlock1 Using cfiCommon0
+        CFI Function led_ctrl
+        CODE
+//   24 {
+        MOV     A,#-0xa
+        LCALL   ?BANKED_ENTER_XDATA
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI ?BRET_EXT load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI ?RET_HIGH load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI ?RET_LOW load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI V1 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI CFA_SP SP+0
+        CFI CFA_XSP16 add(XSP16, 10)
+        ; Saved register size: 10
+        ; Auto size: 0
+//   25     switch(led_num)
+        MOV     ?V0 + 0,R2
+        MOV     ?V0 + 1,R3
+        MOV     R0,#?V0 + 0
+        LCALL   ?US_SWITCH_DENSE
+`?<Jumptable for led_ctrl>_0`:
+        DATA
+        DATA16
+        DATA
+        DATA16
+        DW        0
+        DATA
+        DATA8
+        DATA
+        DATA8
+        DB        1
+        DATA
+        DATA16
+        DATA
+        DATA16
+        DW        ??led_ctrl_0
+        DATA
+        DATA16
+        DATA
+        DATA16
+        DW        ??led_ctrl_1
+        DATA
+        DATA16
+        DATA
+        DATA16
+        DW        ??led_ctrl_2
+        CODE
+//   26     {
+//   27     case LED0:
+//   28         P1_0 = led_state;
+??led_ctrl_1:
+        MOV     A,R4
+        MOV     C,0xE0 /* A   */.0
+        MOV     0x90.0,C
+//   29         break;
+        SJMP    ??led_ctrl_0
+//   30     case LED1:
+//   31         P1_1 = led_state;
+??led_ctrl_2:
+        MOV     A,R4
+        MOV     C,0xE0 /* A   */.0
+        MOV     0x90.1,C
+//   32         break;
+//   33     }
+//   34 }
+??led_ctrl_0:
+        MOV     R7,#0x2
+        LJMP    ?BANKED_LEAVE_XDATA
+        CFI EndBlock cfiBlock1
+        REQUIRE _A_P1
+//   35 
+//   36 /*
+//   37 @key init：按键的初始化函数
+//   38 @retval none 
+//   39 @note：按键应的引是P12，应初始化为普通IO，上拉输入模式
+//   40 */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   41 void key_init(void)
+key_init:
+        CFI Block cfiBlock2 Using cfiCommon0
+        CFI Function key_init
+        CODE
+//   42 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   43     P1SEL &= 0xFB;   // 1111 1011 把P12设置为普通IO模式
+        ANL     0xf4,#0xfb
+//   44     P1DIR &= 0xFB;   // 1111 1011 把P12设置为输入模式
+        ANL     0xfe,#0xfb
+//   45     P1INP &= 0xFB;   // 1111 1011 把P12设置为上下拉模式
+        ANL     0xf6,#0xfb
+//   46     P2INP &= 0xBF;   // 1011 1111 把P1组设置为上拉模式
+        ANL     0xf7,#0xbf
+//   47 }
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock2
+        REQUIRE P1SEL
+        REQUIRE P1DIR
+        REQUIRE P1INP
+        REQUIRE P2INP
+//   48 
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   49 int key_status(void)
+key_status:
+        CFI Block cfiBlock3 Using cfiCommon0
+        CFI Function key_status
+        CODE
+//   50 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   51     return P1_2;
+        MOV     C,0x90.2
+        CLR     A
+        RLC     A
+        MOV     R2,A
+        MOV     R3,#0x0
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock3
+        REQUIRE _A_P1
+//   52 }
+//   53 
+//   54 /*
+//   55 @exti_init：中断初始化函数
+//   56 @retval none 
+//   57 @note：none
+//   58 */
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   59 void exti_init()
+exti_init:
+        CFI Block cfiBlock4 Using cfiCommon0
+        CFI Function exti_init
+        CODE
+//   60 {
+        FUNCALL exti_init, key_init
+        LOCFRAME ISTACK, 2, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 0, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 2, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 0, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    DPL
+        CFI DPL0 Frame(CFA_SP, 4)
+        CFI CFA_SP SP+-4
+        PUSH    DPH
+        CFI DPH0 Frame(CFA_SP, 5)
+        CFI CFA_SP SP+-5
+        ; Saved register size: 2
+        ; Auto size: 0
+//   61   //(1)初始化IO口工作在普通IO模式，上拉输入状态
+//   62     key_init();
+        ; Setup parameters for call to function key_init
+        LCALL   ??key_init?relay
+//   63     //(2)首先打开IO口组中断允许位===>PxIE
+//   64     IEN2 |= 1<<4;   //0001 0000 0x10
+        ORL     0x9a,#0x10
+//   65     //(3)打开组内对应的具体某IO口中断====>PxIEN
+//   66     P1IEN |= 1<<2;  //0000 0100 0x40
+        ORL     0x8d,#0x4
+//   67     //(4)设置是上升沿还是下降沿触发===>PICTL(0,代表上升沿触发；1，代表下降沿触发)
+//   68     PICTL |= 1<<1;  //0000 0010 0x02 设置为下降沿触发
+        ORL     0x8c,#0x2
+//   69     //(5)打开CPU总中断 EA=1;
+//   70     EA = 1;
+        SETB    0xa8.7
+//   71 }
+        POP     DPH
+        CFI DPH0 SameValue
+        CFI CFA_SP SP+-4
+        POP     DPL
+        CFI DPL0 SameValue
+        CFI CFA_SP SP+-3
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock4
+        REQUIRE IEN2
+        REQUIRE P1IEN
+        REQUIRE PICTL
+        REQUIRE _A_IEN0
+//   72 
+
+        RSEG BANKED_CODE:CODE:NOROOT(0)
+//   73 void delay_ms(int n)
+delay_ms:
+        CFI Block cfiBlock5 Using cfiCommon0
+        CFI Function delay_ms
+        CODE
+//   74 {
+        ; Saved register size: 0
+        ; Auto size: 0
+//   75      int i;
+//   76      while(n--)
+??delay_ms_0:
+        MOV     A,R2
+        MOV     R0,A
+        MOV     A,R3
+        MOV     R1,A
+        MOV     A,R0
+        ADD     A,#-0x1
+        DEC     R2
+        MOV     A,R1
+        ADDC    A,#-0x1
+        MOV     R3,A
+        MOV     A,R0
+        ORL     A,R1
+        JNZ     ??delay_ms_0
+//   77          for(i=0;i<587;i++);
+//   78 }
+        LJMP    ?BRET
+        CFI EndBlock cfiBlock5
+//   79 
+//   80 #pragma optimize=none       //不进行编译优化
+//   81 #pragma vector=P1INT_VECTOR //P1组引发中断,vector中断矢量表,下面这段代码必须放在这个地方
+
+        RSEG NEAR_CODE:CODE:NOROOT(0)
+//   82 __interrupt void exint(void)//P1组
+exint:
+        CFI Block cfiBlock6 Using cfiCommon1
+        CFI Function exint
+        CODE
+//   83 {
+        FUNCALL exint, delay_ms
+        LOCFRAME ISTACK, 0, STACK
+        LOCFRAME PSTACK, 0, STACK
+        LOCFRAME XSTACK, 14, STACK
+        LOCFRAME IOVERLAY, 0, STATIC
+        LOCFRAME DOVERLAY, 0, STATIC
+        ARGFRAME ISTACK, 0, STACK
+        ARGFRAME PSTACK, 0, STACK
+        ARGFRAME XSTACK, 14, STACK
+        ARGFRAME IOVERLAY, 0, STATIC
+        ARGFRAME DOVERLAY, 0, STATIC
+        PUSH    A
+        CFI A Frame(CFA_SP, 3)
+        CFI CFA_SP SP+-3
+        MOV     A,#-0xe
+        LCALL   ?INTERRUPT_ENTER_XSP
+        CFI B load(1, XDATA, add(CFA_XSP16, literal(-1)))
+        CFI VB load(1, XDATA, add(CFA_XSP16, literal(-2)))
+        CFI PSW load(1, XDATA, add(CFA_XSP16, literal(-3)))
+        CFI DPL0 load(1, XDATA, add(CFA_XSP16, literal(-4)))
+        CFI DPH0 load(1, XDATA, add(CFA_XSP16, literal(-5)))
+        CFI R7 load(1, XDATA, add(CFA_XSP16, literal(-6)))
+        CFI R6 load(1, XDATA, add(CFA_XSP16, literal(-7)))
+        CFI R5 load(1, XDATA, add(CFA_XSP16, literal(-8)))
+        CFI R4 load(1, XDATA, add(CFA_XSP16, literal(-9)))
+        CFI V0 load(1, XDATA, add(CFA_XSP16, literal(-10)))
+        CFI R3 load(1, XDATA, add(CFA_XSP16, literal(-11)))
+        CFI R2 load(1, XDATA, add(CFA_XSP16, literal(-12)))
+        CFI R1 load(1, XDATA, add(CFA_XSP16, literal(-13)))
+        CFI R0 load(1, XDATA, add(CFA_XSP16, literal(-14)))
+        CFI CFA_XSP16 add(XSP16, 14)
+        ; Saved register size: 14
+        ; Auto size: 0
+//   84       if(P1IFG & 0X04)//0000 0100
+        MOV     A,0x8a
+        MOV     C,0xE0 /* A   */.2
+        JNC     ??exint_0
+//   85       {//确定是P1_2产生了外部中断
+//   86              delay_ms(20); //按键消抖
+        ; Setup parameters for call to function delay_ms
+        MOV     R2,#0x14
+        MOV     R3,#0x0
+        LCALL   ??delay_ms?relay
+//   87              if(P1_2 == 0)
+        MOV     C,0x90.2
+        JC      ??exint_0
+//   88             {
+//   89 	        //中断要做的事情
+//   90                 P1_0 = !P1_0;
+        SETB    B.0
+        MOV     C,0x90.0
+        JNB     B.0,??exint_1
+        CPL     C
+??exint_1:
+        MOV     0x90.0,C
+//   91                 P1_1 = !P1_1;
+        SETB    B.0
+        MOV     C,0x90.1
+        JNB     B.0,??exint_2
+        CPL     C
+??exint_2:
+        MOV     0x90.1,C
+//   92             }
+//   93 		
+//   94       }
+//   95       P1IFG = 0;//把中断状态标志位清0
+??exint_0:
+        MOV     0x8a,#0x0
+//   96       P1IF = 0; //组中断标志位清0
+        CLR     0xe8.3
+//   97 }
+        MOV     R7,#0x1
+        LJMP    ?INTERRUPT_LEAVE_XSP
+        CFI EndBlock cfiBlock6
+        REQUIRE P1IFG
+        REQUIRE _A_P1
+        REQUIRE _A_IRCON2
+
+        COMMON INTVEC:CODE:ROOT(0)
+        ORG 123
+`??exint??INTVEC 123`:
+        LJMP       (exint)
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??led_init?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    led_init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??led_ctrl?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    led_ctrl
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??key_init?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    key_init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??key_status?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    key_status
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??exti_init?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    exti_init
+
+        RSEG BANK_RELAYS:CODE:REORDER:NOROOT(0)
+??delay_ms?relay:
+        LCALL   ?BDISPATCH
+        DATA
+        DC24    delay_ms
+
+        END
+//   98 	
+// 
+// 122 bytes in segment BANKED_CODE
+//  36 bytes in segment BANK_RELAYS
+//   3 bytes in segment INTVEC
+//  54 bytes in segment NEAR_CODE
+//  11 bytes in segment SFR_AN
+// 
+// 212 bytes of CODE memory (+  3 bytes shared)
+//   0 bytes of DATA memory (+ 11 bytes shared)
+//
+//Errors: none
+//Warnings: none
